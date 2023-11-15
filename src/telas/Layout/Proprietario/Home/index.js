@@ -1,19 +1,41 @@
 import { View , TouchableOpacity, Text, BackHandler, Image} from "react-native";
 import React,{useState,useEffect} from 'react'
 import BackgroundGradient from "../../../../componentes/BackgroundGradient";
-import styles from "./style";
-import solicitacoesRoutes from '../../../../dados/Rotas/solicitacaoRoutes'
+import styles from "./style.js";
+import solicitacoesRoutes from '../../../../dados/Rotas/solicitacaoRoutes.js'
 
-import Teste from '../../../../test/test';
-
+import Teste from '../../../../test/test.js';
 export default function LayoutProprietario(props){
     const [proprietario, setProprietario] = useState(null);
 
-    useEffect(() => {
+    useEffect(() => {          
         try {
-            setProprietario(Teste.SetarProprietario)
+          if(Teste.VeiculosProprietario){
+            setVeiculos(Teste.VeiculosProprietario)
+          }else{
+            throw new error
+          }
         } catch (error) {
-            setProprietario(useState(props.route.params.proprietario))
+          const fetchData = async () => {
+            setVeiculos( await veiculosRoutes.getByDono(proprietario.Id))
+          }
+          fetchData()
+        }
+      }, [])
+
+
+    useEffect(() => {          
+        try {
+            if(Teste.SetarProprietario){
+                setProprietario(Teste.SetarProprietario)
+            }else{
+                throw new error
+            }
+        } catch (error) {
+            const fetchData = async () => {
+                setProprietario(props.route.params.proprietario)
+            }
+            fetchData()
         }
     }, [])
     

@@ -2,12 +2,12 @@
 
 
 //LOGIN
-const LoginUsuario={doc:'12716026955',senha:'12345'}
+const LoginUsuario={doc:'58498683050',senha:'12345'}
 const LoginProprietario={doc:'00000000000191',senha:'12345'}
 
 //REGISTRO
 const RegistroUsuario={
-    cpf: '12716026955',
+    cpf: '58498683050',
     nome: 'Luan Golembiewski',
     dataNascimento: '23/04/2001',
     nomeMae: 'Marcia Golembiewski Da Silva Fernandes',
@@ -165,7 +165,7 @@ module.exports={
     //VeiculosUsuario,
 
     /* PROPRIETARIO */
-    SetarProprietario,
+    /* SetarProprietario, */
     //VeiculosProprietario,
-    AddVeiculo,
+    /* AddVeiculo, */
 };

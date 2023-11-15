@@ -1,6 +1,7 @@
+import {ROTA_API,PORT_API} from '@env'
 
 const getByCidade = async(cidade)=>{
-    const res = await fetch(`http://192.168.0.200:5000/veiculos?cidade=${cidade}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/veiculos?cidade=${cidade}`)
     .then(response => {
         if(response.status!=200){
             return null
@@ -11,18 +12,18 @@ const getByCidade = async(cidade)=>{
     return res
 }
 const getByDono = async(id)=>{
-    const res = await fetch(`http://192.168.0.200:5000/veiculos?idDono=${id}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/veiculos?idDono=${id}`)
     .then(response => {
         if(response.status!=200){
             return null
         }
         return response.json()
     })
-    .catch(error => {return null});
+    .catch(error => {return null})
     return res
 }
 const setVehicle = async(veiculo)=>{
-    const res = await  fetch(`http://192.168.0.200:5000/veiculos`,{
+    const res = await  fetch(`http://${ROTA_API}:${PORT_API}/veiculos`,{
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -41,7 +42,7 @@ const setVehicle = async(veiculo)=>{
 }
 const UpdateVehicle = async(id,veiculo)=>{
     var res = false
-    res = await  fetch(`http://192.168.0.200:5000/veiculos/${id}`,{
+    res = await  fetch(`http://${ROTA_API}:${PORT_API}/veiculos/${id}`,{
         method: 'PUT',
         headers: {
             Accept: 'application/json',
@@ -61,7 +62,7 @@ const UpdateVehicle = async(id,veiculo)=>{
 }
 const deleteVehicle = async(id)=>{
     var res = false
-    await  fetch(`http://192.168.0.200:5000/veiculos/${id}`,{
+    await  fetch(`http://${ROTA_API}:${PORT_API}/veiculos/${id}`,{
         method: 'DELETE',
         headers: {
             Accept: 'application/json',

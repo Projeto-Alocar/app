@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import styles from "./style"
 import BackgroundGradient from '../../../componentes/BackgroundGradient'
 import Logo from '../../../componentes/Logo'
-import proprietarioRoutes from '../../../dados/Rotas/proprietarioRoutes'
+import proprietarioRoutes from '../../../dados/Rotas/proprietarioRoutes.js'
 
 import Teste from '../../../test/test';
 
@@ -122,10 +122,11 @@ export default function RegistroProprietario(props){
             Numero: numero
           }
           const adicionado = await proprietarioRoutes.setRegister(proprietario)
+          Alert.alert('Erro',proprietario)
           if(adicionado){
             props.navigation.navigate('Login',{cad: true})
           }else{
-            Alert.alert('Erro','CPF já cadastrado!')
+            /* Alert.alert('Erro','CPF já cadastrado!') */
           }
         }
         }else{

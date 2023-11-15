@@ -1,6 +1,7 @@
+import {ROTA_API,PORT_API} from '@env'
 
 const getLogin = async(cpf,senha)=>{
-    const res = await fetch(`http://192.168.0.200:5000/usuarios?CPF=${cpf}&Senha=${senha}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/usuarios?CPF=${cpf}&Senha=${senha}`)
     .then(response => {
         if(response.status!=200){
             return null
@@ -11,8 +12,8 @@ const getLogin = async(cpf,senha)=>{
     return res
 }
 
-const setRegister=async(usuario)=>{
-    const res = await fetch(`http://192.168.0.200:5000/usuarios`, {
+const setRegister = async(usuario)=>{
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/usuarios`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',

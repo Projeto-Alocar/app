@@ -2,28 +2,29 @@ import { View, Text,BackHandler,FlatList,SafeAreaView, TouchableOpacity,Image } 
 import React,{useState,useEffect} from 'react'
 import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import styles from './style'
-import Teste from '../../../../test/test';
+import Teste from '../../../../test/test.js';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 
-import veiculosRoutes from '../../../../dados/Rotas/veiculoRoutes'
+import veiculosRoutes from '../../../../dados/Rotas/veiculoRoutes.js'
 
 export default function LayoutVeiculosProprietario(props){
   const [proprietario] = useState(props.route.params.proprietario)
   const [veiculos,setVeiculos] = useState(null)
   
-  async function changeVehicle(){
+  useEffect(() => {          
     try {
       if(Teste.VeiculosProprietario){
         setVeiculos(Teste.VeiculosProprietario)
       }else{
         throw new error
       }
-      
     } catch (error) {
-      setVeiculos( await veiculosRoutes.getByDono(proprietario.Id))
+      const fetchData = async () => {
+        setVeiculos( await veiculosRoutes.getByDono(proprietario.Id))
+      }
+      fetchData()
     }
-  }
-  changeVehicle()
+  }, [])
   
   async function setVehicle(){
     props.navigation.navigate("LayoutAdicionarVeiculosProprietario",{proprietario: proprietario})

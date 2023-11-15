@@ -5,7 +5,7 @@ import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import ImageViewer from '../../../../componentes/ImageView'
 import * as ImagePicker from 'expo-image-picker';
 
-import Teste from '../../../../test/test';
+import Teste from '../../../../test/test.js';
 
 export default function LayoutAdicionarVeiculosProprietario(props){ 
   const [proprietario] = useState(props.route.params.proprietario)

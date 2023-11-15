@@ -4,10 +4,10 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import styles from "./style"
 import BackgroundGradient from '../../../componentes/BackgroundGradient'
 import Logo from '../../../componentes/Logo'
-import usuarioRoutes from '../../../dados/Rotas/usuarioRoutes'
+import usuarioRoutes from '../../../dados/Rotas/usuarioRoutes.js'
 import eleitorRoutes from '../../../dados/Rotas/eleitorRoutes.js'
 
-import Teste from '../../../test/test';
+import Teste from '../../../test/test.js';
 
 export default function RegistroUsuario(props){
   const [loading, setLoading] = useState(false);

@@ -1,6 +1,7 @@
+import {ROTA_API,PORT_API} from '@env'
 
 const getLogin=async(doc,senha)=>{
-    const res = await fetch(`http://192.168.0.200:5000/proprietarios?Doc=${doc}&Senha=${senha}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/proprietarios?Doc=${doc}&Senha=${senha}`)
     .then(response => {
         if(response.status!=200){
             return null
@@ -12,11 +13,11 @@ const getLogin=async(doc,senha)=>{
 }
 
 const setRegister=async(proprietario)=>{
-    const res = await fetch(`http://192.168.0.200:5000/proprietarios`, {
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/proprietarios`, {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(proprietario),
     })

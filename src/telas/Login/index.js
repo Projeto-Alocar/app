@@ -4,11 +4,11 @@ import styles from "./style"
 import BackgroundGradient from '../../componentes/BackgroundGradient'
 import Logo from '../../componentes/Logo'
 import {Picker} from '@react-native-picker/picker';
-import usuarioRoutes from '../../dados/Rotas/usuarioRoutes'
-import proprietarioRoutes from '../../dados/Rotas/proprietarioRoutes'
+import usuarioRoutes from '../../dados/Rotas/usuarioRoutes.js'
+import proprietarioRoutes from '../../dados/Rotas/proprietarioRoutes.js'
 import FlashMessage, { showMessage } from 'react-native-flash-message';
 
-import Teste from '../../test/test';
+import Teste from '../../test/test.js';
 
 export default function Login(props) {
  
@@ -91,25 +91,26 @@ export default function Login(props) {
     return true;
   }
 
-  function test(tipoLogin){
-    try{
-      if(tipoLogin == 'p'){
-        setDoc(Teste.LoginProprietario.doc)
-        setSenha(Teste.LoginProprietario.senha)
-      }else if(tipoLogin == 'u'){
-        setDoc(Teste.LoginUsuario.doc)
-        setSenha(Teste.LoginUsuario.senha)
-      }else{
-        throw new error
-      }
-    }catch{}
-  }
-
   async function verificacao(){    
     setDocNull(null)
     setSenhaNull(null)
     setTipoNull(null)
 
+    try{
+      if(tipoLogin == 'p'){
+        if(Teste.LoginProprietario){
+          setDoc(Teste.LoginProprietario.doc)
+          setSenha(Teste.LoginProprietario.senha)
+        }
+      }else if(tipoLogin == 'u'){
+        if(Teste.LoginUsuario){
+          setDoc(Teste.LoginUsuario.doc)
+          setSenha(Teste.LoginUsuario.senha)
+        }
+      }else{
+        Alert.alert('Erro!','Informe o tipo de login')
+      }
+    }catch{}
     if(doc != null && senha != null && tipoLogin != null){
       if(doc.length == 11){
         if(isValidCPF(doc)){
@@ -136,7 +137,7 @@ export default function Login(props) {
           if(tipoLogin == 'p'){
             const proprietario = await proprietarioRoutes.getLogin(doc,senha)
             if(proprietario){
-              props.navigation.navigate('LayoutProprietario',{proprietario: proprietario})
+              props.navigation.navigate('LayoutProprietario',{proprietario: proprietario})              
             }else{
               Alert.alert('Proprietário não encontrado','Confira os dados informados')
             }
@@ -181,7 +182,7 @@ export default function Login(props) {
           <Text style={styles.errorMessage}>{docNull}</Text>
           <TextInput 
             keyboardType='numeric' 
-            maxLength={11}  
+            maxLength={14}  
             style = {styles.txInput}
             onChangeText={setDoc}
           ></TextInput>
@@ -196,7 +197,7 @@ export default function Login(props) {
           <Text style={styles.errorMessage}>{tipoNull}</Text>
           <Picker
             selectedValue={tipoLogin}
-            onValueChange={(Value)=>{setTipoLogin(Value),test(Value)}}
+            onValueChange={(Value)=>setTipoLogin(Value)}
             style={styles.picker} 
             >
             <Picker.Item label="Selecione um tipo..." value={null} />

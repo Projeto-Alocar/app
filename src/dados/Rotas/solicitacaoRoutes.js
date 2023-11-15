@@ -1,5 +1,7 @@
+import {ROTA_API,PORT_API} from '@env'
+
 const getByIdPoprietario = async(id)=>{
-    const res = await fetch(`http://192.168.0.200:5000/solicitacoes?idProprietario=${id}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/solicitacoes?idProprietario=${id}`)
     .then(response => {
         if(response.status!=200){
             return null
@@ -10,7 +12,7 @@ const getByIdPoprietario = async(id)=>{
     return res
 }
 const getByIdUsuario = async(id)=>{
-    const res = await fetch(`http://192.168.0.200:5000/solicitacoes?idUsuario=${id}`)
+    const res = await fetch(`http://${ROTA_API}:${PORT_API}/solicitacoes?idUsuario=${id}`)
     .then(response => {
         if(response.status!=200){
             return null

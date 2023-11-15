@@ -3,7 +3,7 @@ import React,{useState,useEffect} from 'react'
 import styles from './style'
 import BackgroundGradient from '../../../../componentes/BackgroundGradient';
 import NumericInput from 'react-native-numeric-input'
-import veiculoRoutes from '../../../../dados/Rotas/veiculoRoutes'
+import veiculoRoutes from '../../../../dados/Rotas/veiculoRoutes.js'
 
 
 
@@ -44,7 +44,6 @@ export default function LayoutCobrancaVeiculosProprietario(props){
         Img3: info.Img3,
       }
       const adicionado = await veiculoRoutes.setVehicle(veiculo,fotos)
-      
       if(adicionado){
         props.navigation.navigate('LayoutVeiculosProprietario',{cad: true})
       }else{

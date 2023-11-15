@@ -8,12 +8,23 @@ import solicitacoesRoutes from '../../../../dados/Rotas/solicitacaoRoutes'
 import Teste from '../../../../test/test';
 
 export default function LayoutUsuario(props){   
-    var usuario = null 
+    const [usuario, setUsuario] = useState(null);
+
     try {
-        usuario = Teste.SetarUsuario
-    } catch (error) {
-        usuario = props.route.params.usuario;
-    }
+        var cidade = usuario.Cidade
+    } catch (error) {}
+
+    useEffect(() => {          
+        try {
+            if(Teste.SetarProprietario){
+                setUsuario(Teste.SetarUsuario)
+            }else{
+                throw new error
+            }
+        } catch (error) {
+            setUsuario(props.route.params.usuario)   
+        }
+    }, [])    
 
     async function veiculos(){
         props.navigation.navigate("LayoutVeiculosUsuario",{usuario: usuario})
@@ -25,7 +36,7 @@ export default function LayoutUsuario(props){
     return(
         <View style={styles.container}> 
             <BackgroundGradient></BackgroundGradient> 
-            <TxtCidade cidade={usuario.Cidade}></TxtCidade>
+            <TxtCidade cidade={cidade}></TxtCidade>
             <TouchableOpacity
                 style={styles.btn}
                 onPress={veiculos}>
