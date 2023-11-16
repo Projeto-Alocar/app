@@ -22,13 +22,11 @@ const RegistroProprietario={
     senha: '12345',
     numero: 44984217636
 }
-
-
     
 //USUARIO
 const SetarUsuario = {
     Id: 1,
-    CPF: "12716026955",
+    CPF: "58498683050",
     Nome: "Luan Golembiewski",
     DataNascimento: "2001-04-23T03:00:00.000Z",
     NomeMae: "Marcia Golembiewski Da Silva Fernandes",
@@ -139,16 +137,20 @@ const VeiculosProprietario=[
     }
 ];
 const AddVeiculo ={
-    IdProprietario: 4,
+    IdProprietario: 7,
     Modelo: "Honda civic",
     Ano: 2000,
     Cor: 'Vermelho',
     Placa: 'AAA0000',
     Cidade: 'INDIANÓPOLIS - PR',
     Endereco: 'Avenida Brasil, 120',
-    Img1: null,
-    Img2: null,
-    Img3: null
+    CustoMovimento:"20",
+    "CustoHrPassageiro":"18",
+    CustoParado:"18",
+    CustoPassageiro:"16",
+    CustoMulta:"1",
+    HorarioUso:"7;20",
+    IntervaloContratacao:3
 };
 
 module.exports={
@@ -157,8 +159,8 @@ module.exports={
     //RegistroProprietario,
 
     /* LOGIN */
-    //LoginUsuario,
-    //LoginProprietario,
+    LoginUsuario,
+    LoginProprietario,
 
     /* USUARIO */
     //SetarUsuario,
@@ -167,5 +169,5 @@ module.exports={
     /* PROPRIETARIO */
     /* SetarProprietario, */
     //VeiculosProprietario,
-    /* AddVeiculo, */
+    AddVeiculo,
 };

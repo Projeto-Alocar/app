@@ -36,6 +36,7 @@ export default function LayoutAdicionarVeiculosProprietario(props){
       if(Teste.AddVeiculo){
         var info = Teste.AddVeiculo
         props.navigation.navigate("LayoutCobrancaVeiculosProprietario",{ info: info, proprietario: proprietario})
+        return
       }else{
         throw new error
       }

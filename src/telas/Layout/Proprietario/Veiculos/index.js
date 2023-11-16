@@ -11,7 +11,7 @@ export default function LayoutVeiculosProprietario(props){
   const [proprietario] = useState(props.route.params.proprietario)
   const [veiculos,setVeiculos] = useState(null)
   
-  useEffect(() => {          
+  async function changeVeh(){
     try {
       if(Teste.VeiculosProprietario){
         setVeiculos(Teste.VeiculosProprietario)
@@ -24,8 +24,16 @@ export default function LayoutVeiculosProprietario(props){
       }
       fetchData()
     }
+  }
+  useEffect(() => {       
+    changeVeh()
   }, [])
   
+  if(props.route.params.cad){
+    changeVeh()
+    props.route.params.cad = false
+  }
+
   async function setVehicle(){
     props.navigation.navigate("LayoutAdicionarVeiculosProprietario",{proprietario: proprietario})
   }

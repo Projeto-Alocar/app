@@ -91,26 +91,26 @@ export default function Login(props) {
     return true;
   }
 
+  function setarTipoLogin(value){
+    setTipoLogin(value)
+    if(value == 'p'){
+      if(Teste.LoginProprietario){
+        setDoc(Teste.LoginProprietario.doc)
+        setSenha(Teste.LoginProprietario.senha)
+      }
+    }else if(value == 'u'){
+      if(Teste.LoginUsuario){
+        setDoc(Teste.LoginUsuario.doc)
+        setSenha(Teste.LoginUsuario.senha)
+      }
+    }
+  }
+
   async function verificacao(){    
     setDocNull(null)
     setSenhaNull(null)
     setTipoNull(null)
 
-    try{
-      if(tipoLogin == 'p'){
-        if(Teste.LoginProprietario){
-          setDoc(Teste.LoginProprietario.doc)
-          setSenha(Teste.LoginProprietario.senha)
-        }
-      }else if(tipoLogin == 'u'){
-        if(Teste.LoginUsuario){
-          setDoc(Teste.LoginUsuario.doc)
-          setSenha(Teste.LoginUsuario.senha)
-        }
-      }else{
-        Alert.alert('Erro!','Informe o tipo de login')
-      }
-    }catch{}
     if(doc != null && senha != null && tipoLogin != null){
       if(doc.length == 11){
         if(isValidCPF(doc)){
@@ -197,7 +197,7 @@ export default function Login(props) {
           <Text style={styles.errorMessage}>{tipoNull}</Text>
           <Picker
             selectedValue={tipoLogin}
-            onValueChange={(Value)=>setTipoLogin(Value)}
+            onValueChange={(value)=>setarTipoLogin(value)}
             style={styles.picker} 
             >
             <Picker.Item label="Selecione um tipo..." value={null} />

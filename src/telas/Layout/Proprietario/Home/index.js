@@ -10,22 +10,6 @@ export default function LayoutProprietario(props){
 
     useEffect(() => {          
         try {
-          if(Teste.VeiculosProprietario){
-            setVeiculos(Teste.VeiculosProprietario)
-          }else{
-            throw new error
-          }
-        } catch (error) {
-          const fetchData = async () => {
-            setVeiculos( await veiculosRoutes.getByDono(proprietario.Id))
-          }
-          fetchData()
-        }
-      }, [])
-
-
-    useEffect(() => {          
-        try {
             if(Teste.SetarProprietario){
                 setProprietario(Teste.SetarProprietario)
             }else{
@@ -39,10 +23,10 @@ export default function LayoutProprietario(props){
         }
     }, [])
     
-    async function veiculos(){
+    async function telaVeiculos(){
         props.navigation.navigate("LayoutVeiculosProprietario",{ proprietario: proprietario})
     }
-    async function agendamentos(){
+    async function telaAgendamentos(){
         const solicitacoes = await solicitacoesRoutes.getByIdPoprietario(proprietario.Id)
         props.navigation.navigate("LayoutSolicitacoesProprietario",{solicitacoes: solicitacoes})
     }
@@ -51,7 +35,7 @@ export default function LayoutProprietario(props){
             <BackgroundGradient></BackgroundGradient>
             <TouchableOpacity
                 style={styles.btn}
-                onPress={veiculos}>
+                onPress={telaVeiculos}>
                 <Image
                     source ={require('../../../../../assets/img/carro.png')}
                     fadeDuration={0}
@@ -61,7 +45,7 @@ export default function LayoutProprietario(props){
             </TouchableOpacity>
             <TouchableOpacity
                 style={styles.btn}
-                onPress={agendamentos}>
+                onPress={telaAgendamentos}>
                 <Image
                     source ={require('../../../../../assets/img/agenda.png')}
                     fadeDuration={0}

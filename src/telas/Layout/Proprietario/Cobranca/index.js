@@ -5,6 +5,7 @@ import BackgroundGradient from '../../../../componentes/BackgroundGradient';
 import NumericInput from 'react-native-numeric-input'
 import veiculoRoutes from '../../../../dados/Rotas/veiculoRoutes.js'
 
+import Teste from '../../../../test/test.js';
 
 
 export default function LayoutCobrancaVeiculosProprietario(props){ 
@@ -19,7 +20,24 @@ export default function LayoutCobrancaVeiculosProprietario(props){
   const [intervaloContratacao, setIntervaloContratacao] = useState(null);
     
   async function cadastrar(){
-    
+    try{
+      if(Teste.AddVeiculo){
+        var veiculo = Teste.AddVeiculo
+        const fotos = {
+          Img1: null,
+          Img2: null,
+          Img3: null
+        }
+        const adicionado = await veiculoRoutes.setVehicle(veiculo,fotos)
+        if(adicionado){
+          props.navigation.navigate('LayoutVeiculosProprietario',{cad: true})
+        }else{
+          Alert.alert('Erro','Erro ao adicionar veículo no modo Teste\nConferir IdProprietario "Test"')
+        }
+        return
+      }
+    }catch{}
+
     if(custoMovimento != null && custoHrPassageiro != null && custoParado != null && custoPassageiro != null && custoMulta != null && horarioUsoInicial != null && horarioUsoFinal != null && intervaloContratacao != null){
       //CAdastrar
       const veiculo = {
