@@ -2,7 +2,6 @@ import { Text, View , TouchableOpacity , TextInput, Alert } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import Spinner from 'react-native-loading-spinner-overlay';
 import styles from "./style"
-import BackgroundGradient from '../../../componentes/BackgroundGradient'
 import Logo from '../../../componentes/Logo'
 import usuarioRoutes from '../../../dados/Rotas/usuarioRoutes.js'
 import eleitorRoutes from '../../../dados/Rotas/eleitorRoutes.js'
@@ -161,36 +160,52 @@ export default function RegistroUsuario(props){
   };
     return (
       <View style={styles.container}>
-        <BackgroundGradient></BackgroundGradient>
         <View>
-          <Logo w={90} h={50} top={50}></Logo>
-          <Text style={styles.tx}>CPF</Text>
-          <Text style={styles.errorMessage}>{cpfNull}</Text>
+          <View style={{marginBottom:10}}>
+            <Logo w={280} h={60} top={0}></Logo>
+          </View>
+          
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>CPF</Text>
+            <Text style={styles.errorMessage}>{cpfNull}</Text>
+          </View>
           <TextInput keyboardType='numeric' maxLength={11} style = {styles.txInput} onChangeText={setCpf} ></TextInput>
 
-          <Text style={styles.tx}>Nome Completo</Text>
-          <Text style={styles.errorMessage}>{nomeNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Nome Completo</Text>
+            <Text style={styles.errorMessage}>{nomeNull}</Text>
+          </View>
           <TextInput maxLength={100} style = {styles.txInput} onChangeText={setNome} ></TextInput>
 
-          <Text style={styles.tx}>Data de Nascimento</Text>
-          <Text style={styles.errorMessage}>{dataNascimentoNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Data de Nascimento</Text>
+            <Text style={styles.errorMessage}>{dataNascimentoNull}</Text>
+          </View>
           <TextInput maxLength={10} style = {styles.txInput} onChangeText={setDataNascimento}   placeholder='DD/MM/AAAA'></TextInput>
 
 
-          <Text style={styles.tx}>Nome da Mãe</Text>
-          <Text style={styles.errorMessage}>{nomeMaeNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Nome da Mãe</Text>
+            <Text style={styles.errorMessage}>{nomeMaeNull}</Text>
+          </View>
           <TextInput maxLength={100} style = {styles.txInput} onChangeText={setNomeMae} ></TextInput>
 
-          <Text style={styles.tx}>Email</Text>
-          <Text style={styles.errorMessage}>{emailNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Email</Text>
+            <Text style={styles.errorMessage}>{emailNull}</Text>            
+          </View>
           <TextInput maxLength={100} style = {styles.txInput} onChangeText={setEmail} ></TextInput>
 
-          <Text style={styles.tx}>Senha</Text>
-            <Text style={styles.errorMessage}>{senhaNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Senha</Text>
+            <Text style={styles.errorMessage}>{senhaNull}</Text>            
+          </View>
           <TextInput maxLength={30} secureTextEntry={true} style = {styles.txInput} onChangeText={setSenha} ></TextInput>
 
-          <Text style={styles.tx}>Número</Text>
-            <Text style={styles.errorMessage}>{numeroNull}</Text>
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Número</Text>
+            <Text style={styles.errorMessage}>{numeroNull}</Text>            
+          </View>
           <TextInput keyboardType='numeric' maxLength={11} style = {[styles.txInput,{marginBottom: 15}]} onChangeText={setNumero} ></TextInput>
           
           <TouchableOpacity

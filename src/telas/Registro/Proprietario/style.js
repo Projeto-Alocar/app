@@ -6,20 +6,26 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: "#FFFFFF"
     },
     tx:{
-        fontSize: 25,
+        fontSize: 22,
         fontWeight:"bold",
-        padding:5
     },
     txInput:{
         width: 300,
         height: 50,
-        backgroundColor: '#5271FF',
-        borderRadius: 8,
-        marginBottom: 0,
+        backgroundColor: '#FFFFFF',
+        borderColor: "#626262",
+        borderRadius: 50,
+        borderWidth: 2,
         padding: 10,
         fontSize: 20,
+    },
+    Vtx:{
+        marginTop:10,
+        flexDirection:'row', 
+        justifyContent:'space-between'
     },
     picker:{
         backgroundColor: '#5271FF',
@@ -31,19 +37,20 @@ const styles = StyleSheet.create({
         fontWeight:"bold"
     },
     btn:{
-        width: 300,
+        width: 150,
         height: 50,
-        backgroundColor: '#5271FF',
+        backgroundColor: '#4EAF50',
         borderRadius: 50,
         alignItems:"center",
         justifyContent:"center",
-        marginBottom:10
+        alignSelf:"center"
     },
     errorMessage:{
+        alignSelf:"flex-end",
+        textAlign:"right",
         fontSize:12,
         color:"red",
-        fontWeight:"bold",
-        paddingLeft:10,
+        fontWeight:"bold"
     },
     
 });

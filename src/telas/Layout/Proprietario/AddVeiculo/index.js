@@ -1,7 +1,6 @@
 import { View, Text,TextInput, TouchableOpacity, Alert } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from './style'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import ImageViewer from '../../../../componentes/ImageView'
 import * as ImagePicker from 'expo-image-picker';
 
@@ -71,7 +70,7 @@ export default function LayoutAdicionarVeiculosProprietario(props){
               Ano: ano,
               Cor: cor,
               Placa: placa,
-              Cidade: cidade,
+              Cidade: cidade.toUpperCase(),
               Endereco: endereco,
               Img1: foto1,
               Img2: foto2,
@@ -110,27 +109,24 @@ export default function LayoutAdicionarVeiculosProprietario(props){
       allowsEditing: true,
       quality: 1,
     });
-
-    if (!result.canceled) {
+    try{
       if(nFoto==1){
         setSelectedImage1(result.assets[0].uri);
-        setFoto1(result.assets[0].uri)
+        setFoto1(result.assets[0])
       }else if(nFoto==2){
         setSelectedImage2(result.assets[0].uri);
-        setFoto2(result)
+        setFoto2(result.assets[0])
       }else if(nFoto==3){
-        setFoto3(result)
         setSelectedImage3(result.assets[0].uri);
+        setFoto3(result.assets[0])
       }
-    } else {
-      Alert.alert('Aviso', 'Você não selecionou uma foto', [{text:'Ok'},]);
+    }catch{
+      //Alert.alert('Aviso', 'Você não selecionou todas as fotos', [{text:'Ok'},]);
     }
   };
 
   return (
-    <View style={styles.container}>
-      <BackgroundGradient></BackgroundGradient>
-      
+    <View style={styles.container}>      
       <Text style={styles.txtTitulo}>Cadastrar veículos</Text>
       <View>
         <View>
@@ -160,7 +156,7 @@ export default function LayoutAdicionarVeiculosProprietario(props){
         <View>
           <Text style={styles.tx}>Cidade</Text>
           <Text style={styles.errorMessage}>{cidadeNull}</Text>
-          <TextInput maxLength={50} style = {styles.txInput} onChangeText={setCidade} placeholder='Ex: SÃO PAULO - SP' ></TextInput>
+          <TextInput maxLength={50} style = {styles.txInput} onChangeText={setCidade} placeholder='Ex: São Paulo - SP' ></TextInput>
         </View>
         
         <View>

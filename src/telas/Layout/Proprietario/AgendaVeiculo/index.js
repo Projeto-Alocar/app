@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import { View } from "react-native";
 import styles from "./style";
-import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 
 import {Agenda, DateData, AgendaEntry, AgendaSchedule} from 'react-native-calendars';
 
@@ -151,8 +150,6 @@ export default function LayoutAgendaVeiculo(){
     
     return(
         <View style={styles.container}>
-            <BackgroundGradient/>
-
             <View style={{ width:350,height:400 }}>
                 <Agenda
                 onDayPress={handleDayPress}

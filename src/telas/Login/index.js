@@ -1,7 +1,6 @@
 import { Text, View , TextInput, Alert, TouchableOpacity,Image } from 'react-native'
-import React,{useState, useEffect} from 'react'
+import React,{useState, useEffect,useCallback} from 'react'
 import styles from "./style"
-import BackgroundGradient from '../../componentes/BackgroundGradient'
 import Logo from '../../componentes/Logo'
 import {Picker} from '@react-native-picker/picker';
 import usuarioRoutes from '../../dados/Rotas/usuarioRoutes.js'
@@ -11,11 +10,10 @@ import FlashMessage, { showMessage } from 'react-native-flash-message';
 import Teste from '../../test/test.js';
 
 export default function Login(props) {
- 
+
   useEffect(() => {
     try{    
       if(props.route.params.cad){
-        
         showMessage({
           message: "Cadastrado com sucesso!",
           type: "success",
@@ -106,7 +104,7 @@ export default function Login(props) {
     }
   }
 
-  async function verificacao(){    
+  async function btnLogin_Click(){    
     setDocNull(null)
     setSenhaNull(null)
     setTipoNull(null)
@@ -168,53 +166,66 @@ export default function Login(props) {
       }
     }
   };
-  function cadastro(){
+  function btnCadastro_Click(){
     props.navigation.navigate('RegistroSelect')
   }
   
-  
     return (
       <View style={styles.container}>
-        <BackgroundGradient></BackgroundGradient>
         <View>
-          <Logo w={150} h={120} top={0}></Logo>
-          <Text style={styles.tx}>CPF/CNPJ</Text>
-          <Text style={styles.errorMessage}>{docNull}</Text>
+          <View style={{marginBottom:30}}>
+            <Logo w={280} h={60} top={0}></Logo>
+          </View>
+          
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>CPF/CNPJ</Text>
+            <Text style={styles.errorMessage}>{docNull}</Text>
+          </View>
           <TextInput 
             keyboardType='numeric' 
             maxLength={14}  
             style = {styles.txInput}
             onChangeText={setDoc}
           ></TextInput>
-          <Text style={styles.tx}>Senha</Text>
-          <Text style={styles.errorMessage}>{senhaNull}</Text>
+
+          <View style={styles.Vtx}>
+            <Text style={styles.tx}>Senha</Text>
+            <Text style={styles.errorMessage}>{senhaNull}</Text>
+          </View>   
           <TextInput 
             maxLength={30} 
             secureTextEntry={true}  
             style = {styles.txInput}
             onChangeText={setSenha}
           ></TextInput>
-          <Text style={styles.errorMessage}>{tipoNull}</Text>
-          <Picker
-            selectedValue={tipoLogin}
-            onValueChange={(value)=>setarTipoLogin(value)}
-            style={styles.picker} 
-            >
-            <Picker.Item label="Selecione um tipo..." value={null} />
-            <Picker.Item label="Usuário" value="u" />
-            <Picker.Item label="Proprietário" value="p" />
-          </Picker>
-
+          
+          <View style={{alignSelf:'center',marginTop:25}}>
+            <Text style={styles.errorMessage}>{tipoNull}</Text>
+          </View>
+          
+          <View style={styles.vPicker}>
+            <Picker
+              itemStyle={styles.txCad}
+              selectedValue={tipoLogin}
+              onValueChange={(value)=>setarTipoLogin(value)}
+              >
+              <Picker.Item label="Selecione..." value={null} />
+              <Picker.Item label="Usuário" value="u" />
+              <Picker.Item label="Proprietário" value="p" />
+            </Picker>
+          </View>
           <TouchableOpacity
             style={styles.btn}
-            onPress={verificacao}>
+            onPress={btnLogin_Click}>
             <Text style={styles.txBtn}>Login</Text>
           </TouchableOpacity>
-
-          <Text style={{fontSize:15,marginTop:10}} onPress={cadastro}>Não possui login? 
-             <Text style={{fontWeight:"bold"}}> Cadastre-se </Text>
-          </Text>
+          <Text style={{marginTop:5,alignSelf:"center"}}> Esqueceu sua senha?</Text>
         </View>
+        <View style={styles.Vcadastro}>
+            <Text style={styles.txCad} onPress={btnCadastro_Click}>Não possui login? 
+              <Text style={styles.txCadClick}> Cadastre-se</Text>
+            </Text>
+          </View>
         <FlashMessage position="bottom"/>
       </View>
       

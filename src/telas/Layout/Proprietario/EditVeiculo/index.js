@@ -1,7 +1,6 @@
 import { View, Text,TextInput, TouchableOpacity, Alert } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from './style'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import ImageViewer from '../../../../componentes/ImageView'
 import * as ImagePicker from 'expo-image-picker';
 
@@ -120,8 +119,6 @@ export default function LayoutEditarVeiculosProprietario(props){
 
   return (
     <View style={styles.container}>
-      <BackgroundGradient></BackgroundGradient>
-      
       <Text style={styles.txtTitulo}>Cadastrar veículos</Text>
       <View>
         <View>

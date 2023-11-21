@@ -1,6 +1,5 @@
 import { View , TouchableOpacity, Text, BackHandler, Image} from "react-native";
 import React,{useState,useEffect} from 'react'
-import BackgroundGradient from "../../../../componentes/BackgroundGradient";
 import styles from "./style.js";
 import solicitacoesRoutes from '../../../../dados/Rotas/solicitacaoRoutes.js'
 
@@ -32,7 +31,6 @@ export default function LayoutProprietario(props){
     }
     return(
         <View style={styles.container}> 
-            <BackgroundGradient></BackgroundGradient>
             <TouchableOpacity
                 style={styles.btn}
                 onPress={telaVeiculos}>

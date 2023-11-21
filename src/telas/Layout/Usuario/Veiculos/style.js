@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: "#FFFFFF"
     },
     txtTitulo:{
         fontSize:25,
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         height:180,
         alignSelf:"center",
         alignItems: "center",
-        backgroundColor: "#5271FF",
+        backgroundColor: "#4EAF50",
         padding:5,
         margin:10
     },

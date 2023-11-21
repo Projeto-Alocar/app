@@ -5,7 +5,7 @@ export default function Logo(props){
         <Image
             source ={require('../../../assets/img/icon.png')}
             fadeDuration={0}
-            style={{ width: props.w, height: props.h,marginTop: props.top, alignSelf: 'center' }}
+            style={{ resizeMode: 'contain', width: props.w, height: props.h,marginTop: props.top, alignSelf: 'center' }}
         ></Image>
     )
 }

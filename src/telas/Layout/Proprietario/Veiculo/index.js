@@ -4,7 +4,6 @@ import { View, Image,Text,TouchableOpacity,Alert} from "react-native";
 
 import Teste from '../../../../test/test';
 import veiculosRoutes from '../../../../dados/Rotas/veiculoRoutes'
-import BackgroundGradient from "../../../../componentes/BackgroundGradient";
 
 export default function LayoutVeiculoProprietario(props){
     const [veiculo] = useState(props.route.params.veiculo)
@@ -48,65 +47,66 @@ export default function LayoutVeiculoProprietario(props){
     return (
         <View>
             <View style={styles.container}>
-                <BackgroundGradient/>
-                <View style={styles.title}>
-                    <Text style={styles.txtTitulo}>{veiculo.Modelo}</Text>
-                    <View style={styles.icons}>
-                        <TouchableOpacity
-                            style={styles.touchBtn}
-                            onPress={editVeiculo}>
-                            <Image
-                            source ={require('../../../../../assets/img/editar.png')}
-                            fadeDuration={0}
-                            style={styles.imgTitle}
-                            ></Image>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.touchBtn}
-                            onPress={removeClick}>
-                            <Image
-                            source ={require('../../../../../assets/img/remover.png')}
-                            fadeDuration={0}
-                            style={styles.imgTitle}
-                            ></Image>
-                        </TouchableOpacity>
-                    </View>
-                    
-                </View>
-                <View style={styles.itemList}>
+                <View style={styles.Vimg}>
                     <Image
-                    resizeMode="contain"
-                        source ={require('../../../../../assets/img/carro.png')}
-                        fadeDuration={0}
-                        style={styles.imgVert}
-                    ></Image>
-                    <View style={{flexDirection:'row'}}>
-                        <Image
                         resizeMode="contain"
                             source ={require('../../../../../assets/img/carro.png')}
                             fadeDuration={0}
-                            style={styles.imgHori}
-                        ></Image>
-                        <Image
-                        resizeMode="contain"
-                            source ={require('../../../../../assets/img/carro.png')}
-                            fadeDuration={0}
-                            style={styles.imgHori}
-                        ></Image>
-                    </View>
+                            style={styles.imgVert}
+                        >
+                    </Image>
                 </View>
-                <Text style={styles.txtInfo}>Informações</Text>
-                <View>
+                <Text style={styles.txtTitulo}>{veiculo.Modelo}</Text>
+                
+                <View style={styles.icons}>
+                    <TouchableOpacity
+                        style={styles.touchBtn}
+                        onPress={editVeiculo}>
+                        <Image
+                        source ={require('../../../../../assets/img/editar.png')}
+                        fadeDuration={0}
+                        style={styles.imgTitle}
+                        ></Image>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.touchBtn}
+                        onPress={removeClick}>
+                        <Image
+                        source ={require('../../../../../assets/img/remover.png')}
+                        fadeDuration={0}
+                        style={styles.imgTitle}
+                        ></Image>
+                    </TouchableOpacity>
+                </View>
+
+                <View style={styles.Vinfo}>
                     <Text style={styles.txtInfo}>Ano: {veiculo.Ano}</Text>
                     <Text style={styles.txtInfo}>Cor: {veiculo.Cor}</Text>
                     <Text style={styles.txtInfo}>Placa: {veiculo.Placa}</Text>
                     <Text style={styles.txtInfo}>Endereço: {veiculo.Endereco}</Text>
                 </View>
+
+                <View style={styles.VimgHori}>
+                    <Image
+                    resizeMode="contain"
+                        source ={require('../../../../../assets/img/carro.png')}
+                        fadeDuration={0}
+                        style={styles.imgHori}
+                    ></Image>
+                    <Image
+                    resizeMode="contain"
+                        source ={require('../../../../../assets/img/carro.png')}
+                        fadeDuration={0}
+                        style={styles.imgHori}
+                    ></Image>
+                </View>
+
                 <TouchableOpacity 
                 style={styles.btn}
                 onPress={agenda}>
                     <Text style={styles.txBtn}>Agenda</Text>
                 </TouchableOpacity>
+
             </View>
         </View>
     )

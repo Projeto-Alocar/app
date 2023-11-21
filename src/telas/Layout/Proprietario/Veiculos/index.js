@@ -1,6 +1,5 @@
 import { View, Text,BackHandler,FlatList,SafeAreaView, TouchableOpacity,Image } from 'react-native'
 import React,{useState,useEffect} from 'react'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import styles from './style'
 import Teste from '../../../../test/test.js';
 import FlashMessage, { showMessage } from 'react-native-flash-message';
@@ -47,7 +46,6 @@ export default function LayoutVeiculosProprietario(props){
   return (
     <View>
       <View style={styles.container}>
-        <BackgroundGradient></BackgroundGradient>
         <View style={styles.title}>
           <Text style={styles.txtTitulo}>Meus Veiculos</Text>
           <TouchableOpacity
@@ -70,7 +68,7 @@ export default function LayoutVeiculosProprietario(props){
                 <TouchableOpacity onPress={()=>veiculoClick(item)}>
                   <View style={styles.itemList}>
                     <Image
-                      source ={require('../../../../../assets/img/carro.png')}
+                      source ={require('../../../../../assets/img/carro.png')}//console.log(item.Img1)}
                       fadeDuration={0}
                       style={styles.imgList}
                     ></Image>
@@ -87,3 +85,6 @@ export default function LayoutVeiculosProprietario(props){
     </View>
   )
 }
+
+
+// {"width":864,"rotation":null,"height":864,"exif":null,"duration":null,"type":"image","base64":null,"uri":"file:///data/user/0/host.exp.exponent/cache/ExperienceData/%2540anonymous%252FEletrick-160766ea-3ac9-4d81-ac89-f12d4f87faac/ImagePicker/f78a9488-7f5a-40c9-b09d-a9e9e8ec15df.jpeg","assetId":null

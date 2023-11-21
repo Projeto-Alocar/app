@@ -1,6 +1,5 @@
 import { View , TouchableOpacity, Text, BackHandler, Image } from "react-native";
 import React,{useState,useEffect } from 'react'
-import BackgroundGradient from "../../../../componentes/BackgroundGradient";
 import styles from "./style";
 import TxtCidade from '../../../../componentes/TxtCidade'
 import solicitacoesRoutes from '../../../../dados/Rotas/solicitacaoRoutes'
@@ -16,7 +15,7 @@ export default function LayoutUsuario(props){
 
     useEffect(() => {          
         try {
-            if(Teste.SetarProprietario){
+            if(Teste.SetarUsuario){
                 setUsuario(Teste.SetarUsuario)
             }else{
                 throw new error
@@ -35,7 +34,6 @@ export default function LayoutUsuario(props){
     }
     return(
         <View style={styles.container}> 
-            <BackgroundGradient></BackgroundGradient> 
             <TxtCidade cidade={cidade}></TxtCidade>
             <TouchableOpacity
                 style={styles.btn}

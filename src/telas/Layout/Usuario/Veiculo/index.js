@@ -2,25 +2,19 @@ import React,{useState,useEffect} from "react";
 import styles from "./style";
 import { View, Image,Text,TouchableOpacity} from "react-native";
 import proprietarioRoutes from '../../../../dados/Rotas/proprietarioRoutes.js'
-import TxtCidade from '../../../../componentes/TxtCidade'
-
-import BackgroundGradient from "../../../../componentes/BackgroundGradient";
 
 export default function LayoutVeiculoUsuario(props){
     const [veiculo] = useState(props.route.params.veiculo)
     const [usuario] = useState(props.route.params.usuario)
-    const [proprietario,setProprietario] = useState(null)
+    const [proprietario,setProprietario] = useState({Id:null,Nome:"",Email:"",Numero:null})
 
-    async function changeProprieario(){
-        const fetchData = async () => {
-            const prop = await proprietarioRoutes.getById(veiculo.IdProprietario)
-            console.log(veiculo.IdProprietario)
-            setProprietario(prop)
-        }
-        fetchData()
+    async function getProprietario(){
+        const prop = await proprietarioRoutes.getById(veiculo.IdProprietario)
+        setProprietario(prop)
+        return prop
     }
     useEffect(() => {
-        changeProprieario()
+        getProprietario()
     },[])
 
     function agendar(){}
@@ -28,39 +22,38 @@ export default function LayoutVeiculoUsuario(props){
     return (
         <View>
             <View style={styles.container}>
-                <BackgroundGradient/>
-                <TxtCidade cidade={usuario.Cidade}></TxtCidade>
-                <Text style={styles.txtTitulo}>{veiculo.Modelo}</Text>
-                <View style={styles.itemList}>
+                <View style={styles.Vimg}>
                     <Image
-                    resizeMode="contain"
-                        source ={require('../../../../../assets/img/carro.png')}
-                        fadeDuration={0}
-                        style={styles.imgVert}
-                    ></Image>
-                    <View style={{flexDirection:'row'}}>
-                        <Image
                         resizeMode="contain"
                             source ={require('../../../../../assets/img/carro.png')}
                             fadeDuration={0}
-                            style={styles.imgHori}
-                        ></Image>
-                        <Image
-                        resizeMode="contain"
-                            source ={require('../../../../../assets/img/carro.png')}
-                            fadeDuration={0}
-                            style={styles.imgHori}
-                        ></Image>
-                    </View>
+                            style={styles.imgVert}
+                        >
+                    </Image>
                 </View>
-                <Text style={styles.txtInfo}>Informações</Text>
-                <View>
+                <Text style={styles.txtTitulo}>{veiculo.Modelo}</Text>
+                <View style={styles.Vinfo}>
                     <Text style={styles.txtInfo}>Proprietario: {proprietario.Nome} </Text>
                     <Text style={styles.txtInfo}>Fone: {proprietario.Numero} </Text>
                     <Text style={styles.txtInfo}>Ano: {veiculo.Ano}</Text>
                     <Text style={styles.txtInfo}>Cor: {veiculo.Cor}</Text>
                     <Text style={styles.txtInfo}>Placa: {veiculo.Placa}</Text>
                     <Text style={styles.txtInfo}>Endereço: {veiculo.Endereco}</Text>
+                </View>
+
+                <View style={styles.VimgHori}>
+                    <Image
+                    resizeMode="contain"
+                        source ={require('../../../../../assets/img/carro.png')}
+                        fadeDuration={0}
+                        style={styles.imgHori}
+                    ></Image>
+                    <Image
+                    resizeMode="contain"
+                        source ={require('../../../../../assets/img/carro.png')}
+                        fadeDuration={0}
+                        style={styles.imgHori}
+                    ></Image>
                 </View>
                 <TouchableOpacity 
                 style={styles.btn}

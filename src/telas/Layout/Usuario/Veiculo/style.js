@@ -4,30 +4,47 @@ const styles = StyleSheet.create({
         height: "100%",
         width: "100%",
         alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: "#FFFFFF"
+    },
+    Vimg:{
+        backgroundColor:"green",
+        width:"100%",
+        height:200,
+        alignSelf:"center",
+        alignItems:"center",
+        position:"absolute",
+        top:10
     },
     imgVert:{
-        width:300,
-        height:230,
-        backgroundColor:'red'
+        width:"100%",
+        height:"100%",
+    },
+    txtInfo:{
+        top:150,
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    txtTitulo:{
+        top:215,
+        fontSize:25,
+        fontWeight:"bold",
+        alignSelf:"flex-start",
+        left:20,
+    },
+    Vinfo:{
+        top:80,
+        alignSelf:"flex-start",
+        left:20
     },
     imgHori:{
         margin: 5,
-        width:140,
+        width:150,
         height:120,
-        backgroundColor:'red',
-        marginBottom:20
+        backgroundColor:'#4EAF50',
     },
-    txtTitulo:{
-        fontSize:25,
-        marginTop: 0,
-        marginBottom:20,
-        fontWeight:"bold"
-    },
-    txtInfo:{
-        fontSize: 20,
-        fontWeight: "bold",
-
+    VimgHori:{
+        marginTop:250,
+        flexDirection:'row',
     },
     txBtn:{
         fontSize: 20,
@@ -36,7 +53,7 @@ const styles = StyleSheet.create({
     btn:{
         width: 300,
         height: 50,
-        backgroundColor: '#5271FF',
+        backgroundColor: '#4EAF50',
         borderRadius: 50,
         alignItems:"center",
         justifyContent:"center",

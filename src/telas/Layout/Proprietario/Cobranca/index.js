@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from './style'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient';
 import NumericInput from 'react-native-numeric-input'
 import veiculoRoutes from '../../../../dados/Rotas/veiculoRoutes.js'
 
@@ -23,12 +22,7 @@ export default function LayoutCobrancaVeiculosProprietario(props){
     try{
       if(Teste.AddVeiculo){
         var veiculo = Teste.AddVeiculo
-        const fotos = {
-          Img1: null,
-          Img2: null,
-          Img3: null
-        }
-        const adicionado = await veiculoRoutes.setVehicle(veiculo,fotos)
+        const adicionado = await veiculoRoutes.setVehicle(veiculo)
         if(adicionado){
           props.navigation.navigate('LayoutVeiculosProprietario',{cad: true})
         }else{
@@ -37,7 +31,6 @@ export default function LayoutCobrancaVeiculosProprietario(props){
         return
       }
     }catch{}
-
     if(custoMovimento != null && custoHrPassageiro != null && custoParado != null && custoPassageiro != null && custoMulta != null && horarioUsoInicial != null && horarioUsoFinal != null && intervaloContratacao != null){
       //CAdastrar
       const veiculo = {
@@ -48,6 +41,9 @@ export default function LayoutCobrancaVeiculosProprietario(props){
         Placa: info.Placa,
         Cidade: info.Cidade,
         Endereco: info.Endereco,
+        Img1: info.Img1,
+        Img2: info.Img2,
+        Img3: info.Img3,
         CustoMovimento: custoMovimento,
         CustoHrPassageiro: custoHrPassageiro,
         CustoParado: custoParado,
@@ -56,12 +52,7 @@ export default function LayoutCobrancaVeiculosProprietario(props){
         HorarioUso: horarioUsoInicial+"-"+horarioUsoFinal,
         IntervaloContratacao: intervaloContratacao
       }
-      const fotos = {
-        Img1: info.Img1,
-        Img2: info.Img2,
-        Img3: info.Img3,
-      }
-      const adicionado = await veiculoRoutes.setVehicle(veiculo,fotos)
+      const adicionado = await veiculoRoutes.setVehicle(veiculo)
       if(adicionado){
         props.navigation.navigate('LayoutVeiculosProprietario',{cad: true})
       }else{
@@ -75,8 +66,6 @@ export default function LayoutCobrancaVeiculosProprietario(props){
 
   return (
     <View style={styles.container}>
-      <BackgroundGradient></BackgroundGradient>
-      
       <Text style={styles.txtTitulo}>Cobrança</Text>
       <View style={{alignItems:'center'}}>
         <View style={styles.numInput}>

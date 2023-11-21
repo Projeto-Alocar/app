@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, Alert } from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from './style'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient';
 import NumericInput from 'react-native-numeric-input'
 import veiculoRoutes from '../../../../dados/Rotas/veiculoRoutes'
 
@@ -61,9 +60,7 @@ export default function LayoutEditarCobrancaVeiculosProprietario(props){
 
   
   return (
-    <View style={styles.container}>
-      <BackgroundGradient></BackgroundGradient>
-      
+    <View style={styles.container}>      
       <Text style={styles.txtTitulo}>Cobrança</Text>
       <View style={{alignItems:'center'}}>
         <View style={styles.numInput}>

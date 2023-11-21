@@ -1,7 +1,6 @@
 import { Text, View , TouchableOpacity , TextInput, Alert} from 'react-native'
 import React,{useState,useEffect} from 'react'
 import styles from "./style"
-import BackgroundGradient from '../../../componentes/BackgroundGradient'
 import Logo from '../../../componentes/Logo'
 import proprietarioRoutes from '../../../dados/Rotas/proprietarioRoutes.js'
 
@@ -183,27 +182,38 @@ export default function RegistroProprietario(props){
   
   return (
     <View style={styles.container}>
-      <BackgroundGradient></BackgroundGradient>
       <View>
-        <Logo w={150} h={120} top={0}></Logo>
-        <Text style={styles.tx}>CPF/CNPJ</Text>
-        <Text style={styles.errorMessage}>{docNull}</Text>
+        <View style={{marginBottom:10}}>
+          <Logo w={280} h={60} top={0}></Logo>
+        </View>
+        <View style={styles.Vtx}>
+          <Text style={styles.tx}>CPF/CNPJ</Text>
+          <Text style={styles.errorMessage}>{docNull}</Text>
+        </View>
         <TextInput keyboardType='numeric' maxLength={14} style = {styles.txInput} onChangeText={setDoc}></TextInput>
 
-        <Text style={styles.tx}>Nome Completo</Text>
-        <Text style={styles.errorMessage}>{nomeNull}</Text>
+        <View style={styles.Vtx}>
+          <Text style={styles.tx}>Nome Completo</Text>
+          <Text style={styles.errorMessage}>{nomeNull}</Text>
+        </View>
         <TextInput maxLength={100} style = {styles.txInput} onChangeText={setNome}></TextInput>
 
-        <Text style={styles.tx}>Email</Text>
-        <Text style={styles.errorMessage}>{emailNull}</Text>
+        <View style={styles.Vtx}>
+          <Text style={styles.tx}>Email</Text>
+          <Text style={styles.errorMessage}>{emailNull}</Text>
+        </View>
         <TextInput maxLength={100} style = {styles.txInput} onChangeText={setEmail}></TextInput>
 
-        <Text style={styles.tx}>Senha</Text>
-        <Text style={styles.errorMessage}>{senhaNull}</Text>
+        <View style={styles.Vtx}>
+          <Text style={styles.tx}>Senha</Text>
+          <Text style={styles.errorMessage}>{senhaNull}</Text>
+        </View>
         <TextInput maxLength={30} secureTextEntry={true} style = {styles.txInput} onChangeText={setSenha}></TextInput>
 
-        <Text style={styles.tx}>Número</Text>
-        <Text style={styles.errorMessage}>{numeroNull}</Text>
+        <View style={styles.Vtx}>
+          <Text style={styles.tx}>Número</Text>
+          <Text style={styles.errorMessage}>{numeroNull}</Text>
+        </View>
         <TextInput keyboardType='numeric' maxLength={11} style = {[styles.txInput,{marginBottom: 15}]} onChangeText={setNumero}></TextInput>
         
         <TouchableOpacity

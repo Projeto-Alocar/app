@@ -1,6 +1,5 @@
 import { View, Text,BackHandler,TouchableOpacity,FlatList,SafeAreaView, Image } from 'react-native'
 import React,{useState,useEffect} from 'react'
-import BackgroundGradient from '../../../../componentes/BackgroundGradient'
 import TxtCidade from '../../../../componentes/TxtCidade'
 import styles from './style'
 import Teste from '../../../../test/test';
@@ -12,7 +11,7 @@ export default function LayoutVeiculosUsuario(props){
 
   async function changeVehicle(){
       try {
-        if(Teste.VeiculosUsuario){            
+        if(Teste.VeiculosUsuario){   
           setVeiculos(Teste.VeiculosUsuario)
         }else {
           throw new error
@@ -21,19 +20,19 @@ export default function LayoutVeiculosUsuario(props){
         setVeiculos(await veiculosRoutes.getByCidade(usuario.Cidade))
       }
   }
-  changeVehicle()
+  
 
   function veiculoClick(veiculo){
     props.navigation.navigate('LayoutVeiculoUsuario', {usuario: usuario, veiculo: veiculo})
   }
 
   useEffect(() => {
+    changeVehicle()
     BackHandler.removeEventListener('backPress', () => true)
   }, [])
   return (
     <View>
       <View style={styles.container}>
-        <BackgroundGradient></BackgroundGradient>
         <TxtCidade cidade={usuario.Cidade}></TxtCidade>
         <Text style={styles.txtTitulo}>Veiculos</Text>
         <SafeAreaView>

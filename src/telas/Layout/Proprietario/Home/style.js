@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: "#FFFFFF"
     },
     btn: {
         width:250,
@@ -14,7 +15,8 @@ const styles = StyleSheet.create({
         alignItems:'center',
         justifyContent:'center',
         borderRadius:30,
-        backgroundColor:"#5271FF"
+        borderWidth:5,
+        backgroundColor:"#4EAF50"
     },
     txBtn: {
         fontSize: 25,

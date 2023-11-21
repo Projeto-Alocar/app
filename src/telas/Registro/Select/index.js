@@ -1,7 +1,6 @@
 import { Text, View , TouchableOpacity , TextInput, Alert} from 'react-native'
 import React,{useState} from 'react'
 import styles from "./style"
-import BackgroundGradient from '../../../componentes/BackgroundGradient'
 import Logo from '../../../componentes/Logo'
 
 export default function RegistroSelect(props){
@@ -14,9 +13,10 @@ export default function RegistroSelect(props){
   
     return (
       <View style={styles.container}>
-        <BackgroundGradient></BackgroundGradient>
         <View>
-          <Logo w={150} h={120} top={0}></Logo>
+          <View style={{marginBottom:30}}>
+            <Logo w={280} h={60} top={0}></Logo>
+          </View>
           <TouchableOpacity
             style={styles.btn}
             onPress={tipoUsuario}

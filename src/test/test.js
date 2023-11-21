@@ -144,6 +144,9 @@ const AddVeiculo ={
     Placa: 'AAA0000',
     Cidade: 'INDIANÓPOLIS - PR',
     Endereco: 'Avenida Brasil, 120',
+    Img1: null,
+    Img2: null,
+    Img3: null,
     CustoMovimento:"20",
     "CustoHrPassageiro":"18",
     CustoParado:"18",
@@ -163,11 +166,11 @@ module.exports={
     LoginProprietario,
 
     /* USUARIO */
-    //SetarUsuario,
-    //VeiculosUsuario,
+    SetarUsuario,
+    VeiculosUsuario,
 
     /* PROPRIETARIO */
     /* SetarProprietario, */
     //VeiculosProprietario,
-    AddVeiculo,
+    //AddVeiculo,
 };
