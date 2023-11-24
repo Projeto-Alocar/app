@@ -91,20 +91,28 @@ export default function Login(props) {
 
   function setarTipoLogin(value){
     setTipoLogin(value)
+    console.log("1")
     if(value == 'p'){
+      console.log("2")
       if(Teste.LoginProprietario){
+        console.log("3")
         setDoc(Teste.LoginProprietario.doc)
         setSenha(Teste.LoginProprietario.senha)
+        
+        console.log("4")
       }
     }else if(value == 'u'){
+      console.log("5")
       if(Teste.LoginUsuario){
+        console.log("6")
         setDoc(Teste.LoginUsuario.doc)
         setSenha(Teste.LoginUsuario.senha)
+        console.log("7")
       }
     }
   }
 
-  async function btnLogin_Click(){    
+  async function btnLogin_Click(){  
     setDocNull(null)
     setSenhaNull(null)
     setTipoNull(null)

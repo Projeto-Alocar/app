@@ -24,20 +24,20 @@ export default function Routes(){
     return(
         <Stack.Navigator 
           screenOptions={{headerShown: false}}
-          initialRouteName="Login"          >
-          {/* <Stack.Screen name="Login" component={Login}/> */}
-          {/* <Stack.Screen name="RegistroSelect" component={RegistroSelect}/> */}
-          {/* <Stack.Screen name="RegistroUsuario" component={RegistroUsuario}/> */}
-          {/* <Stack.Screen name="RegistroProprietario" component={RegistroProprietario}/> */}
-          {/* <Stack.Screen name="LayoutProprietario" component={LayoutProprietario}/> */}
-          {/* <Stack.Screen name="LayoutVeiculosProprietario" component={LayoutVeiculosProprietario}/>
+          initialRouteName="Login">
+          {/* <Stack.Screen name="Login" component={Login}/>
+          <Stack.Screen name="RegistroSelect" component={RegistroSelect}/>
+          <Stack.Screen name="RegistroUsuario" component={RegistroUsuario}/>
+          <Stack.Screen name="RegistroProprietario" component={RegistroProprietario}/> */}
+          <Stack.Screen name="LayoutProprietario" component={LayoutProprietario}/>
+          <Stack.Screen name="LayoutVeiculosProprietario" component={LayoutVeiculosProprietario}/>
           <Stack.Screen name="LayoutVeiculoProprietario" component={LayoutVeiculoProprietario}/>
           <Stack.Screen name="LayoutSolicitacoesProprietario" component={LayoutSolicitacoesProprietario}/>
           <Stack.Screen name="LayoutAdicionarVeiculosProprietario" component={LayoutAdicionarVeiculosProprietario}/>
           <Stack.Screen name="LayoutEditarVeiculoProprietario" component={LayoutEditarVeiculoProprietario}/>
           <Stack.Screen name="LayoutEditarCobrancaVeiculosProprietario" component={LayoutEditarCobrancaVeiculosProprietario}/>
-          <Stack.Screen name="LayoutCobrancaVeiculosProprietario" component={LayoutCobrancaVeiculosProprietario}/> */}
-          {/* <Stack.Screen name="LayoutAgendaVeiculo" component={LayoutAgendaVeiculo}/> */}
+          <Stack.Screen name="LayoutCobrancaVeiculosProprietario" component={LayoutCobrancaVeiculosProprietario}/>
+          <Stack.Screen name="LayoutAgendaVeiculo" component={LayoutAgendaVeiculo}/>
           <Stack.Screen name="LayoutUsuario" component={LayoutUsuario}/>
           <Stack.Screen name="LayoutVeiculosUsuario" component={LayoutVeiculosUsuario}/>
           <Stack.Screen name="LayoutVeiculoUsuario" component={LayoutVeiculoUsuario}/>

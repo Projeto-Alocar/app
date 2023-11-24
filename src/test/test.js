@@ -170,7 +170,7 @@ module.exports={
     VeiculosUsuario,
 
     /* PROPRIETARIO */
-    /* SetarProprietario, */
-    //VeiculosProprietario,
-    //AddVeiculo,
+    SetarProprietario,
+    VeiculosProprietario,
+    AddVeiculo,
 };
